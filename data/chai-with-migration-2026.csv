@@ -1,0 +1,12 @@
+item,value
+campaign_names_in_crm,9
+leads_open,85
+leads_converted,2
+leads_total,87
+call_status_not_eligible,32
+call_status_not_answering,16
+call_status_connected,11
+call_status_not_interested,10
+call_status_attempted_contact,9
+call_status_call_back,5
+call_status_future_candidate,2
