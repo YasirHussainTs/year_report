@@ -10,6 +10,7 @@
 7. One measured time-saving example (e.g. weekly report: hours before, minutes now)
 
 ## Please confirm
+- Start date 3 Nov 2025, Nov - Dec 2025 training in 5 departments (CRM architecture started for each), CRM implemented 1 Jan 2026. Taken from Yasir's message of 5 Nov 2026. Add what exactly was built in each department if Sharon asks.
 - 24 Oct invite really went out by email and WhatsApp broadcast
 - 974 of 978 WhatsApp leads came in through the IT Department login (360M App Lead Intake)
 - What Power Automate and Databricks are used for (cards are thin)
