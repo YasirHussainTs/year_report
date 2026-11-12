@@ -11,6 +11,13 @@ const aed=n=>'AED '+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFra
   el.innerHTML=SRC.map(([n,v])=>{const w=Math.max(v/max*100,1.2);return `<div class="b"><span>${n}</span><div class="bm"><i style="--w:${w}%"></i></div><span>${fmt(v)}</span></div>`}).join('');
 })();
 
+/* ---------- CRM usage: [month, active people, people with a login, notes logged] ---------- */
+
+(function(){
+  const el=document.getElementById('usebars');
+  el.innerHTML=USE.map(([m,a,t])=>{const p=Math.round(a/t*100);return `<div class="b"><span>${m}<small>${a} of ${t}</small></span><div class="bm"><i style="--w:${p}%"></i></div><span>${p}%</span></div>`}).join('');
+})();
+
 /* ---------- chart ---------- */
 (function(){
   const W=980,H=380,pl=56,pr=10,pt=34,pb=44;
@@ -50,6 +57,33 @@ function rail(id,dir){const r=document.getElementById(id);r.scrollBy({left:dir*3
   h+=`<tr class="tot"><td>Total</td><td>${fmt(T)}</td><td>100%</td><td></td></tr>`;
   document.getElementById('deptable').innerHTML=h;
 })();
+
+/* ---------- leads to clients ----------
+   CONV: [month, marketing spend AED, leads that reached the CRM, clients]  (leads and clients counted by the month the lead was created)
+   DEPT: [department, spend AED, leads, clients], Apr - Oct 2026.  DEPT_ALL: [total spend AED, all leads, all clients] for the same months. */
+
+(function(){
+  const row=(n,sp,l,c,cls)=>`<tr${cls?' class="'+cls+'"':''}><td>${n}<small>AED ${fmt(Math.round(sp))}</small></td><td>${fmt(l)}</td><td>${fmt(c)}</td><td>${(c/l*100).toFixed(1)}%</td><td>${(sp/l).toFixed(2)}</td><td>${fmt(Math.round(sp/c))}</td></tr>`;
+  let h='<tr><th>Department</th><th>Leads</th><th>Clients</th><th>Client rate</th><th>Per lead</th><th>Per client</th></tr>';
+  DEPT.forEach(([n,sp,l,c])=>{h+=row(n,sp,l,c)});
+  h+=row('All departments',DEPT_ALL[0],DEPT_ALL[1],DEPT_ALL[2],'tot');
+  document.getElementById('convtable').innerHTML=h;
+  const el=document.getElementById('cplbars'),max=Math.max(...CONV.map(d=>d[1]/d[2]));
+  el.innerHTML=CONV.map(([m,sp,l])=>{const v=sp/l;return `<div class="b"><span>${m}<small>${fmt(l)}</small></span><div class="bm"><i style="--w:${v/max*100}%"></i></div><span>${v.toFixed(2)}</span></div>`}).join('');
+})();
+
+/* ---------- AI calling (Tidyhire), from Zoho CRM as of 12 Nov 2026 ----------
+   cost: total Tidyhire bill in AED for Aug - 12 Nov. Leave null until the invoice is in Zoho Books. Then the cost card shows cost per call, lead and client. */
+
+function renderAI(){
+  const bars=(id,list,pct)=>{const max=Math.max(...list.map(x=>x[1]));document.getElementById(id).innerHTML=list.map(([n,v])=>`<div class="b"><span>${n}</span><div class="bm"><i style="--w:${Math.max(v/max*100,1.2)}%"></i></div><span>${fmt(v)}${pct?'<small>'+(v/AI.leads*100).toFixed(1).replace('.0','')+'%</small>':''}</span></div>`).join('')};
+  bars('aibars',AI.outcomes,true);bars('aimonths',AI.months,false);
+  const el=document.getElementById('aicost'),c=AI.cost,cl=AI.outcomes[AI.outcomes.length-1][1];
+  el.innerHTML=c==null
+   ?`<h3>Cost</h3><p class="cap" style="font-size:16px;margin-top:8px">Tidyhire's bill is not recorded in Zoho yet. There is no Tidyhire vendor or AI-calling expense account in Zoho Books. When the invoice total is added, this card shows the cost per call, per lead and per client.</p>`
+   :`<h3>Cost</h3><div class="grid g4" style="margin-top:14px"><div><div class="big" style="font-size:34px">${aed(c).replace('.00','')}</div><p class="cap">total, Aug – 12 Nov</p></div><div><div class="big" style="font-size:34px">${aed(c/AI.calls)}</div><p class="cap">per call</p></div><div><div class="big" style="font-size:34px">${aed(c/AI.leads)}</div><p class="cap">per lead called</p></div><div><div class="big" style="font-size:34px">${aed(c/cl).replace('.00','')}</div><p class="cap">per client (${cl})</p></div></div>`;
+}
+renderAI();
 
 /* ---------- systems ---------- */
 

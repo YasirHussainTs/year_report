@@ -1,0 +1,22 @@
+item,value
+leads_called,1063
+calls_made,3535
+calls_per_lead,3.3
+first_calls_logged,2026-07-30 (3 leads, test run)
+leads_by_month_of_latest_call_aug,189
+leads_by_month_of_latest_call_sep,490
+leads_by_month_of_latest_call_oct,319
+leads_by_month_of_latest_call_nov_to_12th,59
+leads_by_month_of_latest_call_july_test,3
+leads_with_no_call_date,3
+crm_status_not_eligible_or_not_interested,424
+crm_status_no_answer_yet,391
+crm_status_connected_or_contacted,137
+crm_status_call_back_or_future_candidate,77
+crm_status_wrong_number_junk_duplicate_new,27
+became_clients,7
+ai_score_hot,16
+ai_score_warm,156
+ai_score_cold,328
+ai_score_not_scored,563
+cost_aed,not recorded in Zoho

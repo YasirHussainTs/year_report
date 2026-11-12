@@ -16,6 +16,19 @@ const FULL=['February','March','April','May','June','July','August','September',
 
 const SRC=[['Meta Ads',24274],['WhatsApp',978],['LinkedIn',295],['Sourcing',249],['Webinar',123],['Email',51],['Chatbots',4]];
 
+const USE=[['Jan',3,6,497],['Feb',5,8,646],['Mar',7,9,1784],['Apr',11,12,2616],['May',12,14,3258],['Jun',14,16,3391],['Jul',11,14,5020],['Aug',12,14,4237],['Sep',12,13,4673],['Oct',13,15,5802]];
+
+const CONV=[['Feb',15811.42,866,14],['Mar',16711.53,3103,12],['Apr',14649.17,3537,75],['May',13799.26,3188,26],['Jun',15364.40,3225,37],['Jul',17135.39,3319,47],['Aug',23139.80,2977,31],['Sep',24982.50,2561,31],['Oct',32442.22,2915,24]];
+
+const DEPT=[['Migration',69069.59,7798,106],['Licensing',18338.82,2617,23],['Recruitment',17226.42,4781,62],['360Future Academy',19221.09,3082,65],['Study Abroad',17268.41,2813,5]];
+
+const DEPT_ALL=[141512.74,21722,271];
+
+const AI={leads:1063,calls:3535,
+ outcomes:[['Not eligible or not interested',424],['No answer yet',391],['Connected or contacted',137],['Call back or future candidate',77],['Wrong number, junk or duplicate',27],['Became clients',7]],
+ months:[['Aug',189],['Sep',490],['Oct',319],['Nov, to 12th',59]],
+ cost:null};
+
 const PROB=[
  ['CRM ran out of fields','The Leads module had no single-line fields left with 6 departments.','Made the questions and fields the same across departments. This also helps Meta Ads tracking.'],
  ['Same person, many services','A doctor can ask for Licensing and Study Abroad at the same time.','Rule: block only if person, department and service all match. Meta import skips the same person from the same campaign.'],

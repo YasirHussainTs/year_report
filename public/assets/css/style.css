@@ -123,6 +123,7 @@ th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2
 td{padding:12px;text-align:right;border-bottom:1px solid #ececf0}
 th:first-child,td:first-child{text-align:left}
 tr.tot td{font-weight:700;border-bottom:0}
+td small{display:block;color:var(--ink2);font-weight:400;font-size:12px;margin-top:2px}
 .tablewrap{overflow-x:auto;background:#fff;border-radius:var(--r);padding:10px 14px;border:1px solid rgba(0,0,0,.06);margin-top:18px}
 .bm{height:8px;border-radius:5px;background:var(--bg2);overflow:hidden;min-width:90px}
 .bm i{display:block;height:100%;background:var(--blue);width:0;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
@@ -194,6 +195,8 @@ tr.tot td{font-weight:700;border-bottom:0}
 .bars .b{display:grid;grid-template-columns:150px 1fr 90px;gap:12px;align-items:center;font-size:15px}
 .bars .b .bm{height:12px}
 .bars .b span:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.bars .b small{color:var(--ink2);font-weight:400;font-size:12.5px;margin-left:8px;white-space:nowrap}
+#aibars .b{grid-template-columns:250px 1fr 120px}
 .dark .bm{background:#2c2c2e}
 
 @media(max-width:860px){
@@ -215,6 +218,11 @@ tr.tot td{font-weight:700;border-bottom:0}
   .ba-head{display:none}
   .ar-pair{grid-template-columns:1fr}
   .bars .b{grid-template-columns:100px 1fr 70px;font-size:13.5px}
+  #aibars .b{grid-template-columns:118px 1fr 86px}
+  .tablewrap.tight{padding:8px 6px}
+  #convtable{font-size:12.5px}
+  #convtable th,#convtable td{padding:10px 3px}
+  #convtable th{font-size:10px;letter-spacing:.01em}
   .flowpin{height:auto}
   .flowstick{position:static;height:auto;padding:84px 0}
 }

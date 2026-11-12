@@ -1,0 +1,8 @@
+department,marketing_spend_aed,leads_in_crm,clients,became_client_pct,cost_per_lead_aed,cost_per_client_aed
+Migration,69069.59,7798,106,1.36,8.86,651.60
+Licensing,18338.82,2617,23,0.88,7.01,797.34
+Recruitment,17226.42,4781,62,1.30,3.60,277.85
+360Future Academy,19221.09,3082,65,2.11,6.24,295.71
+Study Abroad,17268.41,2813,5,0.18,6.14,3453.68
+No department / course name in department field,not split,631,10,,,
+All departments (total spend incl. awareness and WhatsApp broadcast),141512.74,21722,271,1.25,6.51,522.19
